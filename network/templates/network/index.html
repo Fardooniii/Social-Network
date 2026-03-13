@@ -1,0 +1,49 @@
+{% extends "network/layout.html" %}
+{% block body %}
+
+<h2>All Posts</h2>
+
+{% if user.is_authenticated %}
+<form id="post-form" action="{% url 'create_post' %}" method="post">
+    {% csrf_token %}
+    <textarea id="post-content" name="content" placeholder="What's on your mind?" required></textarea><br>
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>
+{% else %}
+<p>Please log in to create posts.</p>
+{% endif %}
+
+<hr>
+
+{% for post in posts %}
+<div class="post" data-post-id="{{ post.id }}">
+    <strong><a href="{% url 'profile' post.user.username %}">{{ post.user.username }}</a></strong>
+    <p>{{ post.content }}</p>
+    <span class="timestamp">{{ post.timestamp }}</span><br>
+
+    <div class="post-actions">
+        {% if user.is_authenticated %}
+        <a href="{% url 'toggle_like' post.id %}" class="like-btn btn btn-outline-danger">❤️ <span class="likes-count">{{ post.likes.count }}</span></a>
+        {% else %}
+        <span>❤️ <span class="likes-count">{{ post.likes.count }}</span></span>
+        {% endif %}
+
+        {% if user == post.user %}
+        <button class="edit-btn btn btn-outline-primary">Edit</button>
+        {% endif %}
+
+        <button class="comment-btn btn btn-outline-secondary">Comment</button>
+    </div>
+</div>
+{% endfor %}
+
+<div class="pagination">
+    {% if posts.has_previous %}
+    <a href="?page={{ posts.previous_page_number }}">Previous</a>
+    {% endif %}
+    {% if posts.has_next %}
+    <a href="?page={{ posts.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+
+{% endblock %}

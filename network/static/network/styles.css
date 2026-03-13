@@ -1,0 +1,10 @@
+textarea { width: 100%; margin-bottom: 10px; padding: 8px; }
+button { margin-bottom: 10px; }
+.post { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+.post-actions { margin-top: 5px; }
+.post-actions a, .post-actions button { margin-right: 5px; }
+.timestamp { font-size: 0.85em; color: #555; }
+.likes-count { font-weight: bold; }
+.pagination a { margin-right: 5px; }
+.like-btn.liked { background-color: #dc3545; color: white; }
+.comment-form { margin-top: 5px; }
