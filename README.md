@@ -1,6 +1,6 @@
 # Network – Social Media Web App
 
-Network is a social networking web application built using **Django, Python, JavaScript, HTML, and CSS** as part of **:contentReference[oaicite:0]{index=0}**. It allows users to interact in a way similar to modern social media platforms, with posts, likes, follows, and user profiles.  
+Network is a social networking web application built using **Django, Python, JavaScript, HTML, and CSS**. It allows users to interact in a way similar to modern social media platforms, with posts, likes, follows, and user profiles.  
 
 Users can **register, log in, and log out**, and once signed in they can:  
 - **Create new text-based posts** and share them with everyone on the platform.  
